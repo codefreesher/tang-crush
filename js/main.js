@@ -10,31 +10,32 @@ $(document).ready(function() {
     }, 600);
 })
 
-function init(){
+function init() {
     $('#title').text(CONFIG.title)
     $('#desc').text(CONFIG.desc)
     $('#yes').text(CONFIG.btnYes)
     $('#no').text(CONFIG.btnNo)
 }
 
-function firstQuestion(){
+function firstQuestion() {
     $('.content').hide();
     Swal.fire({
         title: CONFIG.introTitle,
         text: CONFIG.introDesc,
-        imageUrl: 'img/lookMe.jpg',
+        imageUrl: 'img/cuteCat.jpg',
         imageWidth: 300,
         imageHeight: 300,
+        //image BG
         background: '#fff url("img/iput-bg.jpg")',
         imageAlt: 'Custom image',
         confirmButtonText: CONFIG.btnIntro
-      }).then(function(){
+    }).then(function() {
         $('.content').show(200);
-      })
+    })
 }
 
- // switch button position
- function switchButton() {
+// switch button position
+function switchButton() {
     var audio = new Audio('sound/duck.mp3');
     audio.play();
     var leftNo = $('#no').css("left");
@@ -50,7 +51,7 @@ function firstQuestion(){
 function moveButton() {
     var audio = new Audio('sound/Swish1.mp3');
     audio.play();
-    var x = Math.random() * ($(window).width() - $('#no').width()) * 0.9 ;
+    var x = Math.random() * ($(window).width() - $('#no').width()) * 0.9;
     var y = Math.random() * ($(window).height() - $('#no').height()) * 0.9;
     var left = x + 'px';
     var top = y + 'px';
@@ -69,7 +70,7 @@ $('#no').mousemove(function() {
     n++;
 });
 $('#no').click(() => {
-    if (screen.width>=900)
+    if (screen.width >= 900)
         switchButton();
 })
 
@@ -125,9 +126,8 @@ $('#yes').click(function() {
                 confirmButtonColor: '#83d0c9',
                 onClose: () => {
                     window.location = CONFIG.messLink;
-                  }
+                }
             })
         }
     })
 })
-
